@@ -52,24 +52,22 @@ class ViewController: UIViewController {
         }
             
         else if sender.tag == 17 { // dau =
-//            if sender.tag == 13{
-//                labelShow.text = String (previousNumber / numberInput)
-//            }
-//            else if sender.tag == 14{
-//                labelShow.text = String (previousNumber * numberInput)
-//            }
-//            else if sender.tag == 15{
-//                labelShow.text = String (previousNumber - numberInput)
-//            }
-//            else if sender.tag == 16{
-//                labelShow.text = String (previousNumber + numberInput)
-//            }
-                    switch sender.tag == 17 {
-                    case sender.tag == 13:
+             switch sender.tag == 17 {
+                case sender.tag == 13:
+                    if numberInput >= 0 {
                         labelShow.text = String (previousNumber / numberInput)
-                    default:
-                        labelShow.text = "Apple"
+                    }  else{
+                            labelShow.text = "null"
                     }
+                case sender.tag == 14:
+                        labelShow.text = String (previousNumber * numberInput)
+                case sender.tag == 15:
+                        labelShow.text = String (previousNumber - numberInput)
+                case sender.tag == 16:
+                        labelShow.text = String (previousNumber + numberInput)
+                 default:
+                        labelShow.text = "Apple"
+            }
         }
         
         else if sender.tag == 10 { // AC
@@ -84,6 +82,7 @@ class ViewController: UIViewController {
         }
         
         else if sender.tag == 11 { // +=
+            labelShow.text =  ""
             labelShow.text = String (numberInput * -1)
         }
     }
