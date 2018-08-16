@@ -188,6 +188,9 @@
                                 <state key="normal" title="%">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="did100Button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hlf-Y4-bBP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VS-cd-ZD9">
                                 <rect key="frame" x="103.66666666666669" y="271.66666666666669" width="103" height="92"/>
@@ -196,6 +199,10 @@
                                 <state key="normal" title="+-">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="divplusButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LHa-4I-q3p"/>
+                                    <action selector="numbers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wJ5-uz-trD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ce-Zy-r1a">
                                 <rect key="frame" x="207.66666666666663" y="550.66666666666663" width="103" height="92.333333333333371"/>

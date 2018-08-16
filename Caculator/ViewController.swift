@@ -30,6 +30,18 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func divplusButton(_ sender: Any) {
+        operation = "+-"
+        numberInput = Double (labelShow.text!)
+        perform = true
+    }
+    
+    @IBAction func did100Button(_ sender: Any) {
+        operation = "%"
+        numberInput = Double (labelShow.text!)
+        perform = true
+    }
     @IBAction func clearButton(_ sender: Any) {
         labelShow.text = ""
         previousNumber = 0
@@ -65,22 +77,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equaButton(_ sender: Any) {
-        var results:Double?
+        var results:Double
         switch operation {
         case "*":
             results = previousNumber! * numberInput!
         case "/":
             if numberInput != 0 { results = previousNumber! / numberInput!}
             else {
-                results = nil
+                results = 0
             }
         case "-":
             results = previousNumber! - numberInput!
         case "+":
             results = previousNumber! + numberInput!
+        case "%":
+            results = numberInput! / 100
+        case "+-":
+            results = numberInput! * -1
         default:
-            results = 0.0
+            results = 0
         }
-        labelShow.text = String( results!)
+        labelShow.text = String( results)
     }
 }
