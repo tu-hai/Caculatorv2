@@ -70,7 +70,10 @@ class ViewController: UIViewController {
         case "*":
             results = previousNumber! * numberInput!
         case "/":
-            results = previousNumber! / numberInput!
+            if numberInput != 0 { results = previousNumber! / numberInput!}
+            else {
+                results = nil
+            }
         case "-":
             results = previousNumber! - numberInput!
         case "+":
@@ -79,6 +82,5 @@ class ViewController: UIViewController {
             results = 0.0
         }
         labelShow.text = String( results!)
-       // operation = true
     }
 }
