@@ -9,81 +9,76 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var numberInput: Double = 0
-    var previousNumber: Double = 0
+    var numberInput: Double?
+    var previousNumber: Double?
     var perform = false
-    var operation = 0;
+    var operation: String = ""
     
     @IBOutlet weak var labelShow: UILabel!
    
     @IBAction func numbers(_ sender: UIButton) {
-        if perform == true{
-            labelShow.text = String(sender.tag)
-            numberInput = Double(labelShow.text!)!
+        if perform == true
+        {
+            labelShow.text = String(sender.tag-1)
+            previousNumber = Double (labelShow.text!)
             perform = false
-        }else{
-            labelShow.text = labelShow.text! + String(sender.tag)
-            numberInput = Double (labelShow.text!)!
+        }
+        else
+        {
+            labelShow.text = labelShow.text! + String(sender.tag-1)
+            numberInput = Double(labelShow.text!)
         }
     }
     
+    @IBAction func clearButton(_ sender: Any) {
+        labelShow.text = ""
+        previousNumber = 0
+        numberInput = 0
+    }
     
-    @IBAction func fetures(_ sender: UIButton) {
-        if labelShow.text != "" && sender.tag != 10 && sender.tag != 17 {
-            previousNumber = Double(labelShow.text!)!
-            if sender.tag == 13 {// chia
-                labelShow.text = "/"
-            }
-                
-            else if  sender.tag == 14 {
-                labelShow.text = "x"
-            }
-                
-            else if  sender.tag == 15 {
-                labelShow.text = "-"
-            }
-                
-            else if  sender.tag == 16 {
-                labelShow.text = "+"
-            }
-            
-            operation = sender.tag
-            perform = true
+    @IBAction func didButton(_ sender: Any) {
+       // labelShow.text = "/"
+        operation = "/"
+        numberInput = Double (labelShow.text!)
+        perform = true
+    }
+    
+    @IBAction func plusButton(_ sender: Any) {
+       // labelShow.text = "+"
+        operation = "+"
+        numberInput = Double(labelShow.text!)
+        perform = true
+    }
+    
+    @IBAction func mulButton(_ sender: Any) {
+       // labelShow.text = "*"
+        operation = "*"
+        numberInput = Double(labelShow.text!)
+        perform = true
+    }
+    
+    @IBAction func minButton(_ sender: Any) {
+       // labelShow.text = "_"
+        operation = "-"
+        numberInput = Double(labelShow.text!)
+        perform = true
+    }
+    
+    @IBAction func equaButton(_ sender: Any) {
+        var results:Double?
+        switch operation {
+        case "*":
+            results = previousNumber! * numberInput!
+        case "/":
+            results = previousNumber! / numberInput!
+        case "-":
+            results = previousNumber! - numberInput!
+        case "+":
+            results = previousNumber! + numberInput!
+        default:
+            results = 0.0
         }
-            
-        else if sender.tag == 17 { // dau =
-             switch sender.tag == 17 {
-                case sender.tag == 13:
-                    if numberInput >= 0 {
-                        labelShow.text = String (previousNumber / numberInput)
-                    }  else{
-                            labelShow.text = "null"
-                    }
-                case sender.tag == 14:
-                        labelShow.text = String (previousNumber * numberInput)
-                case sender.tag == 15:
-                        labelShow.text = String (previousNumber - numberInput)
-                case sender.tag == 16:
-                        labelShow.text = String (previousNumber + numberInput)
-                 default:
-                        labelShow.text = "Apple"
-            }
-        }
-        
-        else if sender.tag == 10 { // AC
-            labelShow.text = ""
-            previousNumber = 0
-            numberInput = 0
-            operation = 0
-        }
-            
-        else if sender.tag == 12 { // %
-            labelShow.text = String(numberInput * 0.01)
-        }
-        
-        else if sender.tag == 11 { // +=
-            labelShow.text =  ""
-            labelShow.text = String (numberInput * -1)
-        }
+        labelShow.text = String( results!)
+       // operation = true
     }
 }
